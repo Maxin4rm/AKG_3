@@ -14,7 +14,7 @@ namespace Lab1_DrawPolygons_SiSharp_V1
 {
     public partial class FormMain : Form
     {
-        private const string PATH_TO_OBJECT_FILE_DIRECTORY = "..\\..\\..\\FilesObject";
+        private const string PATH_TO_OBJECT_FILE_DIRECTORY = "..\\..\\..";
 
         private string pathObjFile;
 
@@ -131,19 +131,6 @@ namespace Lab1_DrawPolygons_SiSharp_V1
                             renderObject.VerticesGeometric[triangleIndex.VerticesGeometricIndexes[j] - 1].W
                     ));
                 }
-
-                /*
-                VectorFourCoord[] vectorTriangleNormals = new VectorFourCoord[3] {
-                    vectorsTransformed[0].TakeVectorNormalWithoutW(vectorsTransformed[1], vectorsTransformed[2]),
-                    vectorsTransformed[1].TakeVectorNormalWithoutW(vectorsTransformed[2], vectorsTransformed[0]),
-                    vectorsTransformed[2].TakeVectorNormalWithoutW(vectorsTransformed[0], vectorsTransformed[1])
-                };
-                VectorFourCoord[] vectorLightDirections = new VectorFourCoord[3] {
-                    vectorsTransformed[0].SubstractWithVectorWithoutW(lightSource.VectorLight).TakeNormalizedVectorWithoutW(),
-                    vectorsTransformed[1].SubstractWithVectorWithoutW(lightSource.VectorLight).TakeNormalizedVectorWithoutW(),
-                    vectorsTransformed[2].SubstractWithVectorWithoutW(lightSource.VectorLight).TakeNormalizedVectorWithoutW()
-                };
-                */
 
                 VectorFourCoord vectorTriangleNormal = vectorsTransformed[0].TakeVectorNormalWithoutW(vectorsTransformed[1], vectorsTransformed[2]);
                 VectorFourCoord vectorLightDirection = vectorsTransformed[0].SubstractWithVectorWithoutW(lightSource.VectorLight).TakeNormalizedVectorWithoutW();
